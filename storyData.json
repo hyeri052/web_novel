@@ -1,0 +1,297 @@
+{
+  "gameInfo": {
+    "title": "박명의 요람",
+    "subtitle": "부제",
+    "me": "주인공(나)",
+    "backgroundMusic": "intheforest.mp3"
+  },
+  "characters": {
+    "Astra": {
+      "id": "Astra",
+      "name": "아스트라",
+      "color": "#A26062",
+      "initialAffection": 0,
+      "minAffection": 0,
+      "maxAffection": 6,
+      "imageFolder": "Astra",
+      "emotions": {
+        "default": "Astra_default",
+        "sigh": "Astra_sigh.png",
+        "pain": "Astra_pain.png",
+        "surprise": "Astra_surprise.png"
+      }
+    }
+  },
+  "places": {
+    "forest": {
+      "id": "forest",
+      "name": "숲속",
+      "image": "forest.png",
+      "color": ""
+    },
+    "hub_heal": {
+      "id": "hub_heal",
+      "name": "허브 힐",
+      "image": "hub_heal.png",
+      "color": ""
+    },
+    "end_room": {
+      "id": "end_room",
+      "name": "배드엔딩",
+      "image": "",
+      "color": "#cbcbc7"
+    },
+    "end_room2": {
+      "id": "end_room2",
+      "name": "해피엔딩",
+      "image": "",
+      "color": "#f4d1d1"
+    }
+  },
+  "storyScenes": [
+    {
+      "id": "scene1",
+      "type": "normal",
+      "place": "forest",
+      "backgroundMusic": "intheforest.mp3",
+      "dialogues": [
+        {
+          "speaker": "narrator",
+          "text": "알수 없는 숲에서 눈을 떴다"
+        },
+        {
+          "speaker": "me",
+          "text": "\"여긴… 어디지?\""
+        },
+        {
+          "speaker": "??",
+          "text": "\"크윽…\""
+        }
+      ],
+      "next": "scene1_choice"
+    },
+    {
+      "id": "scene1_choice",
+      "type": "choice",
+      "place": "forest",
+      "dialogues": [
+        {
+          "speaker": "narrator",
+          "text": "어디선가 고통스런 소리가 들린다."
+        }
+      ],
+      "choices": [
+        {
+          "text": "소리가 난 곳으로 간다.",
+          "next": "scene2",
+          "index": 1,
+          "affectionChanges": {
+            "Astra": 3
+          },
+          "reaction": {
+            "speaker": "me",
+            "text": "위험한 상황일지 몰라. 가보자"
+          }
+        },
+        {
+          "text": "가만히 있자.",
+          "next": "check_scene",
+          "index": 2,
+          "reaction": {
+            "speaker": "me",
+            "text": "아니, 괜히 움직이다 나도 위험에 빠질 수 있어. 가만히 있자"
+          }
+        },
+        {
+          "text": "수상한 숲이니 돌아가자",
+          "next": "check_scene",
+          "index": 3,
+          "reaction": {
+            "speaker": "me",
+            "text": "여기가 어딘지도 모르잖아. 돌아가자. 뒤를 돌면 인도가 보일지도 몰라"
+          }
+        }
+      ],
+      "next": "scene2"
+    },
+    {
+      "id": "scene2",
+      "type": "normal",
+      "place": "forest",
+      "backgroundMusic": "intheforest.mp3",
+      "dialogues": [
+        {
+          "speaker": "??",
+          "text": "\"누구… 제발 약방에 대려다줘…부탁이야, (기침소리)\"",
+          "characters": [
+            {
+              "id": "Astra",
+              "emotion": "pain",
+              "position": "left",
+              "active": true
+            }
+          ]
+        },
+        {
+          "speaker": "narrator",
+          "text": "색바랜 금발의 누군가가 고통에 표정을 찡그린다.",
+          "characters": [
+            {
+              "id": "Astra",
+              "emotion": "pain",
+              "position": "left"
+            }
+          ]
+        },
+        {
+          "speaker": "??",
+          "text": "\"숲 끝에… 내 약방이 있어… \"",
+          "characters": [
+            {
+              "id": "Astra",
+              "emotion": "pain",
+              "position": "left",
+              "active": true
+            }
+          ]
+        }
+      ],
+      "next": "scene2_choice"
+    },
+    {
+      "id": "scene2_choice",
+      "type": "choice",
+      "place": "forest",
+      "dialogues": [
+        {
+          "speaker": "me",
+          "text": "어떻게 하지..?'"
+        }
+      ],
+      "choices": [
+        {
+          "text": "약방으로 대려다 준다",
+          "next": "scene3",
+          "index": 1,
+          "affectionChanges": {
+            "Astra": 3
+          },
+          "reaction": {
+            "speaker": "me",
+            "text": "수상한 자긴 하지만 아픈 자를 두고 갈 정도로 잔혹한 성향은 아니다."
+          }
+        }
+      ],
+      "next": "scene3"
+    },
+    {
+      "id": "scene3",
+      "type": "normal",
+      "place": "hub_heal",
+      "dialogues": [
+        {
+          "speaker": "narrator",
+          "text": "당신은 힘들어하는 자가 말한 곳으로 향하였다."
+        },
+        {
+          "speaker": "narrator",
+          "text": "새치가 히끗 보이는 젊은이는 약병에서 무언가 꺼내 삼키자 아까보다 안색이 나아졌다.",
+          "characters": [
+            {
+              "id": "Astra",
+              "emotion": "sigh",
+              "position": "left"
+            }
+          ]
+        },
+        {
+          "speaker": "??",
+          "text": "\"구해줘서 고마워, 난 마을에서 약방을 하고있어. 다들 날 아스트라라고 불려.\"",
+          "characters": [
+            {
+              "id": "Astra",
+              "emotion": "default",
+              "position": "left",
+              "active": true
+            }
+          ]
+        },
+        {
+          "speaker": "아스트라",
+          "text": "\"생명의 은인인데 이름도 모르고 있었네.\"",
+          "characters": [
+            {
+              "id": "Astra",
+              "emotion": "default",
+              "position": "left",
+              "active": true
+            }
+          ]
+        }
+      ],
+      "next": "scene3_choice"
+    },
+    {
+      "id": "scene3_choice",
+      "type": "choice",
+      "place": "hub_heal",
+      "dialogues": [
+        {
+          "speaker": "아스트라",
+          "text": "\"너의 이름을 알려줄 수 있을까?\""
+        }
+      ],
+      "choices": [],
+      "next": "check_scene"
+    },
+    {
+      "id": "check_scene",
+      "type": "normal",
+      "place": "hub_heal",
+      "checkAffection": true,
+      "dialogues": [
+        {
+          "speaker": "narrator",
+          "text": ""
+        }
+      ],
+      "next": "bad_ending"
+    },
+    {
+      "id": "bad_ending",
+      "type": "ending",
+      "place": "end_room",
+      "dialogues": [],
+      "next": "ending2"
+    },
+    {
+      "id": "ending2",
+      "type": "ending",
+      "place": "end_room2",
+      "dialogues": []
+    }
+  ],
+  "endingConfig": {
+    "thresholds": {
+      "bad": 0,
+      "normal": 1,
+      "good": 2,
+      "best": 6
+    },
+    "common": {
+      "bad": {
+        "title": "배드엔딩",
+        "message": "배드엔딩"
+      }
+    },
+    "duo": [],
+    "characterEndings": {
+      "Astra": {
+        "best": {
+          "title": "해피엔딩",
+          "message": "해피엔딩"
+        }
+      }
+    }
+  }
+}

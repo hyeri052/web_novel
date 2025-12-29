@@ -8,4 +8,5 @@ const nextConfig = {
     assetPrefix: '/web_novel/',  // ⭐ 슬래시 포함
   };
   
+
   module.exports = nextConfig;
